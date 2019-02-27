@@ -27,10 +27,10 @@ cat = Cat.new
 dog = Dog.new
 
 say = animal.method(:say)
-puts say  # STDIN: #<UnboundMethod: Cat#say>
+puts say  # STDOUT: #<UnboundMethod: Cat#say>
 puts "#{say}'s owner: #{say.owner}"  # the original
 puts "#{say}'s parameters: #{say.parameters}"
 puts "parameters.length: #{say.arity}"  # parameters.length
 
-say.unbind.bind(dog).()  # STDIN: mungmung
-say.unbind.bind(cat).()  # STDIN: meow
+say.unbind.bind(dog).()  # STDOUT: mungmung
+say.unbind.bind(cat).()  # STDOUT: meow

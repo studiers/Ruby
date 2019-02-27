@@ -11,5 +11,5 @@ def run_lambda_obj
     :reachable_test
 end
 
-puts run_proc_obj  # "inner_value" to stdin
-puts run_lambda_obj  # "reachable_test" to stdin
+puts run_proc_obj  # "inner_value" to STDOUT
+puts run_lambda_obj  # "reachable_test" to STDOUT
