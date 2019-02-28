@@ -1,0 +1,28 @@
+require "rake/clean"
+require 'date'
+
+Dir.mkdir "logs" unless File.exists? 'logs'
+
+CLEAN.include('logs/*')
+
+namespace :make do
+    
+    Dir.mkdir "logs" unless File.exists? 'logs'
+
+    desc "모든 쓸모없는 로그를 생성합니다"
+    task :log => [:date_log, :person_log] do
+        puts "쓸데없는 로그들 완성!"
+    end
+    
+    desc "쓸모없는 오늘 날짜를 기록합니다"
+    task :date_log do
+        File.new "logs/#{DateTime.now}.log", "w"
+    end
+    
+    desc "사용자 로그를 남깁니다"
+    task :person_log do
+        File.new "logs/#{ENV['USER']}.log", "w"
+    end
+end
+
+task :default => 'make:log'
